@@ -25,8 +25,10 @@ async function request(method, path, body, isFormData = false) {
 
 // ─── Auth ─────────────────────────────────────────────────────────────────────
 export const authApi = {
-  login:  (email, password)             => request("POST", "/auth/login",  { email, password }),
-  signup: (name, email, password, role) => request("POST", "/auth/signup", { name, email, password, role }),
+  login:      (email, password)             => request("POST", "/auth/login",  { email, password }),
+  signup:     (name, email, password, role) => request("POST", "/auth/signup", { name, email, password, role }),
+  verify:     (email, code)                 => request("POST", "/auth/verify", { email, code }),
+  resendCode: (email)                       => request("POST", "/auth/resend", { email }),
 };
 
 // ─── Jobs ─────────────────────────────────────────────────────────────────────

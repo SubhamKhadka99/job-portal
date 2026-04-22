@@ -1,7 +1,7 @@
 /** Format a salary range into a readable string, e.g. "$60k – $90k" */
 export function fmtSalary(min, max) {
   if (!min && !max) return null;
-  const f = (n) => (n >= 1000 ? `$${(n / 1000).toFixed(0)}k` : `$${n}`);
+  const f = (n) => (n >= 1000 ? `${(n / 1000).toFixed(0)}k` : `${n}`);
   if (min && max) return `${f(min)} – ${f(max)}`;
   if (min) return `From ${f(min)}`;
   return `Up to ${f(max)}`;
