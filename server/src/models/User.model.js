@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     enum: ["local", "google"],
     default: "local",
   },
-  googleId: { type: String, unique: true, sparse: true, default: null },
+  googleId: { type: String, unique: true, sparse: true},
   phone: { type: String, default: "" },
   location: { type: String, default: "" },
   skills: [{ type: String }],
@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
   resumePublicId: { type: String, default: "" },
   avatarUrl: { type: String, default: "" },
   isActive: { type: Boolean, default: true },
+
+  //! Email verification 
+  isVerified:         { type: Boolean, default: false },
+  verificationCode:   { type: String,  default: null },
+  verificationExpiry: { type: Date,    default: null },
+
 }, { timestamps: true });
 
 const User = mongoose.model("User", userSchema);
